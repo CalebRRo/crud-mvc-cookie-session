@@ -151,5 +151,14 @@
       "discount": 0,
       "image": "product-1663333824052.jpg",
       "category": "visited"
+   },
+   {
+      "id": 18,
+      "name": "Caleb",
+      "description": "annacnakshdkasncnajkcm",
+      "price": 8000,
+      "discount": 5,
+      "image": "product-1663373975796.jpg",
+      "category": "visited"
    }
 ]

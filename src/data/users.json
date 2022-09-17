@@ -23,7 +23,7 @@
       "surname": "graciano",
       "email": "yohannagracianooo@gmail.com",
       "password": "$2a$12$J/YZFduudZfbUb.cSOzgSOB9S5JLkRetglpK9VLEkOHhIyytn2d86",
-      "rol": "admi",
+      "rol": "admin",
       "avatar": "avatar.png"
    },
    {
@@ -31,16 +31,25 @@
       "name": "Ringo",
       "surname": "Romanos",
       "email": "calelu4@gmail.com",
-      "password": "$2a$12$BuHYGUacQIEA7mZLz4Uz2.jb7eNbqQqIzslQcg9zM2CDlM2gUYmZO",
+      "password": "$2a$12$xB.bX45g3YxYEvvPGNG1r.KHfn6dytcZ7UoB1RwhhNQpkQFHwDOtO",
       "rol": "user",
       "avatar": "avatar.png"
    },
    {
       "id": 5,
-      "name": "Facundo",
-      "surname": "Arevalos",
-      "email": "facuAre@gmail.com",
-      "password": "$2a$12$evs2y/8GjvMpDz7LkaIu0OR9S229yv072TSr5dIuDuPr3ctrHTqFu",
+      "name": "Emanuel",
+      "surname": "Arroyos",
+      "email": "emaarroyos@gmail.com",
+      "password": "$2a$12$NpQ9n9PNgZA7pcKoU3lJEuLfi75WEPMeIA4RnoxD26fNNqqF9sTta",
+      "rol": "admin",
+      "avatar": "avatar.png"
+   },
+   {
+      "id": 6,
+      "name": "Marta",
+      "surname": "Graciano",
+      "email": "martagraciano@gmail.com",
+      "password": "$2a$12$7SVJ7CZn3goSlmRhOZE21eYfBapQe1jG2QMxVqDkEsJD/mROkmCHq",
       "rol": "user",
       "avatar": "avatar.png"
    }

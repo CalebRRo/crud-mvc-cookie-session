@@ -2,11 +2,13 @@
 const express = require('express');
 const router = express.Router();
 
+const {productsAddValidator,productsEditValidator} = require("../validations")
 
 
 // ************ Middlewares Require ************
 
 const {uploadImageProduct} = require("../middlewares/uploadFiles")
+const adminUserCheck = require("../middlewares/adminUserCheck")
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
@@ -15,16 +17,16 @@ const productsController = require('../controllers/productsController');
 router.get('/', productsController.index); 
 
 /*** CREATE ONE PRODUCT ***/ 
-router.get('/create', productsController.create); 
-router.post('/store',uploadImageProduct.single("image"), productsController.store); 
+router.get('/create',adminUserCheck, productsController.add); 
+router.post('/create',uploadImageProduct.single("image"), productsAddValidator, productsController.store); 
 
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/detail/:id/', productsController.detail); 
+router.get('/detail/:id/',productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id/', productsController.edit); 
-router.put('/update/:id', productsController.update);
+router.get('/edit/:id',adminUserCheck, productsController.edit); 
+router.put('/update/:id',productsEditValidator, productsController.update);
 
 
 /*** DELETE ONE PRODUCT***/ 

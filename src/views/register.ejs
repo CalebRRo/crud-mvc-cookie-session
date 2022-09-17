@@ -9,18 +9,18 @@
           
             <div class="card">
                 <div class="card-body">
-                    <form action="" method="POST">
-                      
+                    <form  action="" method="POST" >
+                      <h1 >Registro</h1>
                    
                         <div class="mb-3">
                           <label for="name" class="form-label">Nombre</label>
-                          <input type="text" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" name="name" id="name" aria-describedby="emailHelp" value="<%= locals.old && old.username ? old.username : null %>">
+                          <input type="text" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" name="name" id="name" value="<%= locals.old && old.username ? old.username : null %>">
                           <p class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null%> </p>
                         </div>
                         
                         <div class="mb-3">
                             <label for="surname" class="form-label">Apellido</label>
-                            <input type="text" class="form-control <%= locals.errors && errors.surname ? 'is-invalid' : null %>" name="surname" id="surname" aria-describedby="emailHelp" value="<%= locals.old && old.surname ? old.surname : null %>">
+                            <input type="text" class="form-control <%= locals.errors && errors.surname ? 'is-invalid' : null %>" name="surname" id="surname"  value="<%= locals.old && old.surname ? old.surname : null %>">
                             <p class="text-danger"><%= locals.errors && errors.surname ? errors.surname.msg : null%> </p>
                           </div>
                           <div class="mb-3">
@@ -30,12 +30,12 @@
                         </div>
                           <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" name="email" id="email" aria-describedby="emailHelp" value="<%= locals.old && old.email ? old.email : null %>">
+                            <input type="email" class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" name="email" id="email"  value="<%= locals.old && old.email ? old.email : null %>">
                             <p class="text-danger"><%= locals.errors && errors.email ? errors.email.msg : null%> </p>
                           </div>
                           <div class="mb-3">
                             <label for="Password" class="form-label">Password</label>
-                            <input type="password" class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>" name="password" id="password" aria-describedby="emailHelp">
+                            <input type="password" class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>" name="password" id="password" >
                             <p class="text-danger"><%= locals.errors && errors.password ? errors.password.msg : null%> </p>
                           </div>
                           

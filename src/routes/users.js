@@ -5,21 +5,22 @@ const {login, register,processRegister,processLogin,profile,logout} = require(".
 const {registerValidator, loginValidator} = require('../validations');
 const {uploadImageUser} = require("../middlewares/upLoadFiles");
 
-//const userSessionCheck = require('../middlewares/userSessionCheck');
+const userSessionCheck = require('../middlewares/userSessionCheck');
 
 /* user. */
 router
 
-      /* USERS-register */
+      /* USERS-REGISTER */
      .get('/register', register)
-     .post('/register',uploadImageUser.single("images"),   registerValidator,   processRegister)
+     .post('/register',uploadImageUser.single("images"), registerValidator, processRegister)
 
       /* USERS-lOGIN */
      .get('/login', login)
-     .post('/login',  loginValidator,  processLogin)
+     .post('/login', loginValidator,  processLogin)
 
-     .get('/profile', /* userSessionCheck, */ profile)
-     //.get("/logout", logout)
+     /* USER PROFILE */
+     .get('/profile',userSessionCheck, profile)
+     .get("/logout", logout)
      
 
 module.exports = router;

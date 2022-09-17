@@ -1,6 +1,7 @@
 const {loadProducts, storeProducts} = require("../data/productsModule")
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const fs = require("fs");
+const { validationResult } = require("express-validator");
 
 const controller = {
 	// Root - Show all products
@@ -25,13 +26,15 @@ const controller = {
 	},
 
 	// Create - Form to create
-	create: (req, res) => {
+	add: (req, res) => {
 		// Do the magic
 		return res.render("product-create-form")
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
+		const errors = validationResult(req);
+		if (errors.isEmpty()) {
 		// Do the magic
 		const {name,price,discount,description,category} = req.body
 		const products = loadProducts()
@@ -50,6 +53,12 @@ const controller = {
 		storeProducts(productsModify);
 
 		return res.redirect("/products");
+	} else {
+		return res.render("product-create-form", {
+		  errors: errors.mapped(),
+		  old: req.body,
+		});
+	  }
 	},
 
 	// Update - Form to edit
@@ -65,6 +74,8 @@ const controller = {
 	update: (req, res) => {
 		// Do the magic
 		const products = loadProducts();
+		const errors = validationResult(req);
+		if (errors.isEmpty()) {
 		const {name,price,discount,category,description} = req.body
 	    const productsModify = products.map(product => {
 			if (product.id === +req.params.id) {
@@ -82,6 +93,13 @@ const controller = {
 		storeProducts(productsModify);
 		
 		return res.redirect("/products/detail/" + req.params.id)
+	} else {
+		return res.render("product-edit-form",{
+		  product: req.body,
+		  id: req.params.id,
+		  errors: errors.mapped(),
+		});
+	  }
 	},
 
 	// Delete - Delete one product from DB
