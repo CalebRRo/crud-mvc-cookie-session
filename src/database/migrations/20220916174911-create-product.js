@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       categoryId: {
         type: Sequelize.INTEGER,
@@ -34,11 +34,11 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: true,
+ 
         type: Sequelize.DATE
       },
       deletedAt:{
-        allowNull: true,
+  
         type: Sequelize.DATE
       }
     });
