@@ -1,17 +1,11 @@
 'use strict';
 const productsDB = require("../../data/products.json")
-const products = [
-  {
-name : "admin",
-createdAt : new Date()
-  },
-  {
-    name : "user",
+const products = productsDB.map(product => {
+  return {
+    ...product,
     createdAt : new Date()
-      },
-    
-        
-]
+  }
+})
 module.exports = {
   async up (queryInterface, Sequelize) {
     

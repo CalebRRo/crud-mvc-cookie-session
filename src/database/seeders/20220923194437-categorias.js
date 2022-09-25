@@ -1,25 +1,25 @@
 'use strict';
 const categories = [
   {
-name : "Hogar",
-createdAt : new Date()
+    name : "Hogar",
+    createdAt : new Date()
   },
   {
     name : "Informatica",
     createdAt : new Date()
-      },
-      {
-        name : "Audio y video",
-        createdAt : new Date()
-          },
-          {
-            name : "Celulares",
-            createdAt : new Date()
-              },
-              {
-                name : "Tiempo libre",
-                createdAt : new Date()
-                  },
+  },
+  {
+    name : "Audio y video",
+    createdAt : new Date()
+  },
+  {
+    name : "Celulares",
+    createdAt : new Date()
+  },
+  {
+    name : "Tiempo libre",
+    createdAt : new Date()
+  },
 ]
 module.exports = {
   async up (queryInterface, Sequelize) {

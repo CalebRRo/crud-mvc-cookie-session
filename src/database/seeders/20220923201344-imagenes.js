@@ -1,17 +1,12 @@
 'use strict';
-const productsDB = require("../../data/images.json")
-const images = [
-  {
-name : "admin",
-createdAt : new Date()
-  },
-  {
-    name : "user",
+const imagesDB = require("../../data/images.json")
+const images = imagesDB.map(({image}, index )=> {
+  return {
+    file : image,
+    productId : index + 1,
     createdAt : new Date()
-      },
-    
-        
-]
+  }
+})
 module.exports = {
   async up (queryInterface, Sequelize) {
     
