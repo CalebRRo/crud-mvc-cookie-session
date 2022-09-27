@@ -17,7 +17,8 @@ module.exports = {
         allowNull: false,
       },
       discount: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
       },
       description: {
         type: Sequelize.TEXT,
