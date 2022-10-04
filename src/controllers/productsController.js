@@ -20,12 +20,7 @@ const controller = {
 	// Detail - Detail from one product
 	detail: (req, res) => {
 		// Do the magic
-	/* 	const products = loadProducts()
-		const product = products.find(product => product.id === +req.params.id)
-		return res.render("detail",{
-			product,
-			toThousand
-		}) */
+
 		db.Product.findByPk(req.params.id,{
 			include: ["images"]
 		})
@@ -39,12 +34,22 @@ const controller = {
 	// Create - Form to create
 	add: (req, res) => {
 		// Do the magic
-		return res.render("product-create-form")
+		db.Category.findAll({
+			attributes : ["id","name"],
+			order : ["name"]
+		})
+		.then(categories =>{
+			return res.render("product-create-form",{
+				categories
+			})
+		})
+		.catch(error => console.log(error))
+		
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		const errors = validationResult(req);
+	/* 	const errors = validationResult(req);
 		if (errors.isEmpty()) {
 		// Do the magic
 		const {name,price,discount,description,category} = req.body
@@ -69,7 +74,28 @@ const controller = {
 		  errors: errors.mapped(),
 		  old: req.body,
 		});
-	  }
+	  } */
+	  
+	  db.Product.create({
+		...req.body,
+		name : req.body.name.trim(),
+		description : req.body.description.trim()
+	  })
+	  .then(product => {
+		if(req.files.length){
+			let images = req.files.map(({filename}) => {
+                return {
+					file : filename,
+					productId : product.id
+				}
+			})
+			db.Image.bulkCreate(images,{
+				validate : true
+			}).then((result) => console.log(result))
+		}
+		return res.redirect("/products")
+	  })
+	  .catch(error => console.log(error))
 	},
 
 	// Update - Form to edit
