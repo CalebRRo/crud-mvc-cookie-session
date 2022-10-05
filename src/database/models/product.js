@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Product',
-    paranoid : false
+    paranoid : true
   });
   return Product;
 };

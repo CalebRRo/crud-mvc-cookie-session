@@ -16,7 +16,7 @@ module.exports = [
           no_symbols: true
       }).withMessage('Solo números positivos'), 
       
-    check("category")
+    check("categoryId")
       .notEmpty()
       .withMessage("la categoria del producto es obligatorio"),
 
